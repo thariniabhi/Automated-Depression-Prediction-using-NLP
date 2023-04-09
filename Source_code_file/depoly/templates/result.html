@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<style>
+		.back{
+		 background-image: url("{{ url_for('static', filename='image/img2.jpg') }}");
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		  background-size: 100% 100%;
+		}
+		center{
+		padding-top:10%;
+		}
+		a{
+		color:red;
+		}
+		</style>
+</head>
+<body class="back">
+
+	<header class="jumbotron" style="height: 100px;">
+		<div class="container">
+		<h2 style="text-align:center">DEPRESSION PREDICTION USING NLP</h2>
+		
+	</div>
+	</header>
+	<center>
+
+	<div class="card" style="width:30%">
+	<p style="color:red;font-size:20;text-align: center;"><b>Result for depression prediction</b></p>
+	<div class="results">
+	
+
+		
+	{% if prediction[0] == 'Depression' %}
+	
+	<h2 style="color:red;">PERSON IN DEPRESSION</h2>
+	{% elif prediction[0] == 'Not in Depression' %}
+	
+	<h2 style="color:green;">PERSON NOT IN DEPRESSION</h2>
+	{% endif %}
+    </div>
+    </center>
+
+	</div>
+<a href="{{ url_for('home')}}">Go back</a>
+
+</body>
+</html>
